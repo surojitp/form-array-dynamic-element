@@ -1,0 +1,21 @@
+<!-- <div> 
+    <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)" > 
+       <input type= "text"  name="userSubject" placeholder="userSubject" formControlName = "userSubject" /> 
+       <br/>
+       <br/>
+       
+       <app-child-form  [formdata]="formdata"></app-child-form><br/>
+       <input type="submit"  value="Click here" /> 
+       
+    </form>
+    
+ </div>  -->
+
+ <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngFor="let formField of formFields" class="form-group">
+    <label> {{ formField.fieldName }}</label>
+    <input class="form-control" type="{{ formField.fieldType }}" value="{{ formField.fieldName }}" [required]="formField.required" formControlName="{{ formField.fieldName }}" />
+    <br>
+    </div>
+    <button type="submit" class="btn btn-primary" >Submit</button>
+   </form>
